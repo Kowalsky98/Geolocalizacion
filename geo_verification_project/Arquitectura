@@ -1,0 +1,14 @@
+geo_verification_project/
+├── main.py
+├── services/
+│   ├── geo_service.py
+│   ├── directory_service.py
+│   ├── alert_service.py
+│   └── api_connector.py
+├── models/
+│   └── database.py
+├── config/
+│   └── config.py
+├── logs/
+│   └── app.log
+└── requirements.txt
