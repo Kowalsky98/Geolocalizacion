@@ -7,7 +7,7 @@ def get_ip_address():
 
 def get_geolocation(ip_address):
     try:
-        response = requests.get(f"https://ipapi.co/{ip_address}/json/")
+        response = requests.get(f'https://freegeoip.app/json/{ip_address}')
         response.raise_for_status()
         data = response.json()
         latitude = data.get("latitude")
