@@ -1,3 +1,6 @@
-2024-07-17 09:49:37,497 INFO:Alerta enviada correctamente.
-2024-07-17 09:53:26,295 ERROR:Error al enviar la alerta.
-2024-07-17 09:59:06,247 INFO:Alerta enviada correctamente.
+
+2024-07-18 11:44:57,648:INFO:Serial del sistema: MJ084LXS
+2024-07-18 11:44:58,029:INFO:Direcci�n IP obtenida: 190.6.57.18
+2024-07-18 11:44:58,398:INFO:Geolocalizaci�n obtenida - Latitud: 10.4873, Longitud: -66.8738
+2024-07-18 11:44:58,934:INFO:Directorios no permitidos encontrados: ['C:\\LottiplayT']
+2024-07-18 11:44:58,935:INFO:Directorios permitidos faltantes: ['C:\\GanaT_Bolivares\\GanaT.exe', 'C:\\GanaT_Dolares\\GanaT.exe']

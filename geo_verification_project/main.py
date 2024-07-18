@@ -1,53 +1,67 @@
 # main.py
-import time
-import logging
 import os
-from services.geo_service import get_geolocation, get_ip
-from services.directory_service import verify_directories
-from services.alert_service import generate_alert
-from services.system_info import get_system_serial
-from config.config import DIRECTORIES_TO_CHECK
+import logging
+from services.geo_service import get_ip_address, get_geolocation, send_geo_alert
+from services.system_service import get_system_serial
+from services.directory_service import get_directories_from_api, verify_directories, check_missing_directories
 
-# Crear el directorio de logs si no existe
 if not os.path.exists('logs'):
     os.makedirs('logs')
 
-# Configuración del log
 logging.basicConfig(filename='logs/app.log', level=logging.INFO, 
-                    format='%(asctime)s %(levelname)s:%(message)s')
+                    format='%(asctime)s:%(levelname)s:%(message)s')
 
-def main():
+
+ALERT_API_URL = "https://api.gana-loterias.com/v4/geolocation"
+
+DIRECTORIES_API_URL = "https://pocket-base-production.up.railway.app/api/collections/paths/records"
+
+
+try:
+    serial = get_system_serial()
+    logging.info(f"Serial del sistema: {serial}")
+except Exception as e:
+    logging.error(f"Error al obtener el serial del sistema: {e}")
+    serial = "1exc100" 
+
+
+ip_address = get_ip_address()
+logging.info(f"Dirección IP obtenida: {ip_address}")
+
+
+latitude, longitude = get_geolocation(ip_address)
+if latitude is None or longitude is None:
+    logging.error("No se pudo obtener la geolocalización. Abortando envío de alertas.")
+else:
+    logging.info(f"Geolocalización obtenida - Latitud: {latitude}, Longitud: {longitude}")
+
     try:
-        # Obtener la IP del equipo
-        ip_address = get_ip()
-        
-        # Obtener la geolocalización basada en la IP
-        latitude, longitude = get_geolocation(ip_address)
-        
-        # Obtener el serial del equipo
-        serial = get_system_serial()
-        
-        # Verificar la existencia de los directorios especificados
-        missing_directories = verify_directories(DIRECTORIES_TO_CHECK)
-        
-        # Determinar el tipo de alerta basado en los directorios encontrados
-        if missing_directories:
-            alert_type = "system not found"
-            alert = True
-        else:
-            alert_type = "another system found"
-            alert = False
-        
-        # Generar y enviar la alerta
-        response_status = generate_alert(serial, latitude, longitude, alert, alert_type)
-        if response_status == 202:
-            logging.info("Alerta enviada correctamente.")
-        else:
-            logging.error("Error al enviar la alerta.")
+        directories = get_directories_from_api(DIRECTORIES_API_URL)
     except Exception as e:
-        logging.error(f"Error en el proceso principal: {e}")
+        logging.error(f"Error al obtener directorios de la API: {e}")
+        directories = []
 
-if __name__ == "__main__":
-    while True:
-        main()
-        time.sleep(3600)  # Ejecutar cada hora
+    invalid_directories = verify_directories(directories)
+    logging.info(f"Directorios no permitidos encontrados: {invalid_directories}")
+
+    missing_directories = check_missing_directories(directories)
+    logging.info(f"Directorios permitidos faltantes: {missing_directories}")
+
+    if invalid_directories:
+        for directory in invalid_directories:
+            try:
+                send_geo_alert(ALERT_API_URL, serial, f"Directorio no permitido encontrado: {directory}", float(latitude), float(longitude))
+            except Exception as e:
+                logging.error(e)
+    else:
+        try:
+            send_geo_alert(ALERT_API_URL, serial, "Todos los directorios permitidos", float(latitude), float(longitude))
+        except Exception as e:
+            logging.error(e)
+
+    if missing_directories:
+        for directory in missing_directories:
+            try:
+                send_geo_alert(ALERT_API_URL, serial, f"Directorio permitido faltante: {directory}", float(latitude), float(longitude))
+            except Exception as e:
+                logging.error(e)
