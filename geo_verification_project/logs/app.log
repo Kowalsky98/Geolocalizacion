@@ -1,22 +1,17 @@
-2024-07-18 11:53:45,717:INFO:Serial del sistema: MJ084LXS
-2024-07-18 11:53:46,092:INFO:Direcciï¿½n IP obtenida: 190.6.57.18
-2024-07-18 11:53:46,623:INFO:Geolocalizaciï¿½n obtenida - Latitud: 7.76692008972168, Longitud: -72.22481536865234
-2024-07-18 11:53:47,219:INFO:Directorios no permitidos encontrados: ['C:\\LottiplayT']
-2024-07-18 11:53:47,220:INFO:Directorios permitidos faltantes: ['C:\\GanaT_Bolivares\\GanaT.exe', 'C:\\GanaT_Dolares\\GanaT.exe']
-2024-07-18 14:21:23,767:INFO:Serial del sistema: MJ084LXS
-2024-07-18 14:21:24,128:INFO:Dirección IP obtenida: 190.6.57.18
-2024-07-18 14:21:24,745:INFO:Geolocalización obtenida - Latitud: 7.76692008972168, Longitud: -72.22481536865234
-2024-07-18 14:21:25,325:INFO:Directorios no permitidos encontrados: ['C:\\LottiplayT']
-2024-07-18 14:21:25,327:INFO:Directorios permitidos faltantes: ['C:\\GanaT_Bolivares\\GanaT.exe', 'C:\\GanaT_Dolares\\GanaT.exe']
-2024-07-18 15:02:43,051:INFO:Serial del sistema: MJ084LXS
-2024-07-18 15:02:43,434:INFO:IP: 190.6.57.18
-2024-07-18 15:02:43,970:INFO:Geo - Latitud: 7.76692008972168, Longitud: -72.22481536865234
-2024-07-18 15:02:44,692:INFO:Alerta: ['C:\\LottiplayT']
-2024-07-18 15:02:44,694:INFO:Faltantes: ['C:\\GanaT_Bolivares\\GanaT.exe', 'C:\\GanaT_Dolares\\GanaT.exe']
-2024-07-18 15:02:45,758:INFO:Se ejecutó el archivo Post.lnk
-2024-07-18 15:43:38,628:INFO:Serial del sistema: MJ084LXS
-2024-07-18 15:43:38,990:INFO:IP: 190.6.57.18
-2024-07-18 15:43:39,523:INFO:Geo - Latitud: 7.76692008972168, Longitud: -72.22481536865234
-2024-07-18 15:43:40,469:INFO:Alerta: ['C:\\LottiplayT']
-2024-07-18 15:43:40,471:INFO:Faltantes: ['C:\\GanaT_Bolivares\\GanaT.exe', 'C:\\GanaT_Dolares\\GanaT.exe']
-2024-07-18 15:43:41,541:INFO:Se ejecutó el archivo Post.lnk
+2024-07-19 09:25:52,522:INFO:Serial del sistema: MJ084LXS
+2024-07-19 09:25:52,907:INFO:IP: 190.6.57.18
+2024-07-19 09:25:53,368:INFO:Geo - Latitud: 7.76692008972168, Longitud: -72.22481536865234
+2024-07-19 09:25:53,707:INFO:Alerta: []
+2024-07-19 09:25:53,709:INFO:Faltantes: ['C:\\%USERPROFILE%\\Desktop\\KingDeportes.lnk', 'C:\\%USERPROFILE%\\Desktop\\PagoListo.lnk']
+2024-07-19 09:25:54,772:INFO:Se ejecutó el archivo Post.lnk
+2024-07-19 09:41:07,745:INFO:Serial del sistema: MJ084LXS
+2024-07-19 09:41:08,151:INFO:IP: 190.6.57.18
+2024-07-19 09:41:08,645:INFO:Geo - Latitud: 7.76692008972168, Longitud: -72.22481536865234
+2024-07-19 09:41:09,254:INFO:Alerta: []
+2024-07-19 09:41:09,260:INFO:Faltantes: ['C:\\%USERPROFILE%\\Desktop\\KingDeportes.lnk', 'C:\\%USERPROFILE%\\Desktop\\PagoListo.lnk']
+2024-07-19 09:41:10,316:INFO:Se ejecutó el archivo Post.lnk
+2024-07-19 09:51:59,452:INFO:Serial del sistema: MJ084LXS
+2024-07-19 09:51:59,832:INFO:IP: 190.6.57.18
+2024-07-19 09:52:00,390:INFO:Geo - Latitud: 7.76692008972168, Longitud: -72.22481536865234
+2024-07-19 09:52:00,791:INFO:Alerta: []
+2024-07-19 09:52:00,793:INFO:Faltantes: []

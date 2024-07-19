@@ -6,7 +6,6 @@ from services.geo_service import get_ip_address, get_geolocation, send_geo_alert
 from services.system_service import get_system_serial
 from services.directory_service import get_directories_from_api, verify_directories, check_missing_directories
 
-# Configuración de logging
 if not os.path.exists('logs'):
     os.makedirs('logs')
 
@@ -18,7 +17,6 @@ ALERT_API_URL = "https://api.gana-loterias.com/v4/geolocation"
 
 DIRECTORIES_API_URL = "https://pocket-base-production.up.railway.app/api/collections/paths/records"
 
-
 try:
     serial = get_system_serial()
     logging.info(f"Serial del sistema: {serial}")
@@ -26,10 +24,8 @@ except Exception as e:
     logging.error(f"Error al obtener el serial del sistema: {e}")
     serial = "1exc100"  
 
-
 ip_address = get_ip_address()
 logging.info(f"IP: {ip_address}")
-
 
 latitude, longitude = get_geolocation(ip_address)
 if latitude is None or longitude is None:
@@ -37,7 +33,6 @@ if latitude is None or longitude is None:
 else:
     logging.info(f"Geo - Latitud: {latitude}, Longitud: {longitude}")
 
-    # Obtener directorios desde la API
     try:
         directories = get_directories_from_api(DIRECTORIES_API_URL)
     except Exception as e:
