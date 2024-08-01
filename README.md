@@ -1,22 +1,15 @@
 # Geo Verification Project
 
-Este proyecto verifica directorios en el sistema y envía alertas basadas en la geolocalización.
+## Descripción General
+Este proyecto permite verificar y geolocalizar directorios en sistemas Windows, diseñado para aumentar la seguridad y eficiencia en la gestión de archivos.
 
-## Estructura del Proyecto
+## Requisitos del Sistema
+- Python 3.8+
+- Dependencias detalladas en `requirements.txt`
 
-geo_verification_project/
-├── config/
-│   └── config.py
-├── logs/
-│   └── app.log
-├── models/
-│   └── database.py
-├── services/
-│   ├── alert_service.py
-│   ├── directory_service.py
-│   ├── geo_service.py
-│   └── system_service.py
-├── main.py
-├── requirements.txt
-└── README.md
-
+## Instalación
+Clone el repositorio e instale las dependencias:
+```bash
+git clone 
+cd geo_verification_project
+pip install -r requirements.txt
