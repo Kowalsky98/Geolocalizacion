@@ -10,6 +10,6 @@ Este proyecto permite verificar y geolocalizar directorios en sistemas Windows, 
 ## Instalación
 Clone el repositorio e instale las dependencias:
 ```bash
-git clone 
+git clone https://github.com/Kowalsky98/Geolocalizacion.git
 cd geo_verification_project
 pip install -r requirements.txt
